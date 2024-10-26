@@ -1,100 +1,165 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight, PieChart, DollarSign, TrendingUp } from "lucide-react";
+import Link from "next/link";
+
+export default function Component() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+    <div className="flex flex-col min-h-screen items-center bg-gradient-to-b from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800">
+      <header className="px-4 lg:px-6 h-16 flex items-center justify-center w-full bg-white dark:bg-gray-800 shadow-md">
+        <a className="flex items-center justify-center" href="#">
+          <DollarSign className="h-8 w-8 text-green-600 dark:text-green-400" />
+          <span className="ml-2 text-xl font-bold text-gray-800 dark:text-white">
+            FinBot
+          </span>
+        </a>
+        <nav className="ml-auto flex gap-4 sm:gap-6">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            className="text-sm font-medium text-gray-600 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400 hover:underline underline-offset-4"
+            href="#features"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            Características
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            className="text-sm font-medium text-gray-600 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-400 hover:underline underline-offset-4"
+            href="#cta"
           >
-            Read our docs
+            Empezar
           </a>
-        </div>
+        </nav>
+      </header>
+      <main className="flex-1 w-full">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 flex justify-center">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-gray-800 dark:text-white">
+                  FinBot:{" "}
+                  <span className="text-green-600 dark:text-green-400">
+                    Tu Asistente Financiero
+                  </span>{" "}
+                  en WhatsApp
+                </h1>
+                <p className="mx-auto max-w-[700px] text-gray-600 md:text-xl dark:text-gray-300">
+                  Lleva el control de tus gastos e ingresos de manera fácil y
+                  rápida con FinBot, tu asistente financiero en WhatsApp.
+                </p>
+              </div>
+              <div className="space-x-4">
+                <Button
+                  onClick={() => {
+                    window.open("https://wa.me/573161167237", "_blank");
+                  }}
+                  className="bg-green-600 hover:bg-green-700 text-white"
+                >
+                  Comenzar Ahora
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="features"
+          className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-800 flex justify-center"
+        >
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 text-gray-800 dark:text-white">
+              Características
+            </h2>
+            <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
+              <Card className="bg-green-50 dark:bg-gray-700 border-green-200 dark:border-green-600">
+                <CardHeader>
+                  <CardTitle className="text-green-700 dark:text-green-300">
+                    Control de Gastos
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <PieChart className="h-12 w-12 mb-4 text-green-600 dark:text-green-400" />
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Registra y categoriza tus gastos fácilmente a través de
+                    WhatsApp.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="bg-green-50 dark:bg-gray-700 border-green-200 dark:border-green-600">
+                <CardHeader>
+                  <CardTitle className="text-green-700 dark:text-green-300">
+                    Seguimiento de Ingresos
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <DollarSign className="h-12 w-12 mb-4 text-green-600 dark:text-green-400" />
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Mantén un registro detallado de tus ingresos y fuentes de
+                    dinero.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="bg-green-50 dark:bg-gray-700 border-green-200 dark:border-green-600">
+                <CardHeader>
+                  <CardTitle className="text-green-700 dark:text-green-300">
+                    Análisis Financiero
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <TrendingUp className="h-12 w-12 mb-4 text-green-600 dark:text-green-400" />
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Obtén informes y análisis de tu situación financiera al
+                    instante.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+        <section
+          id="cta"
+          className="w-full py-12 md:py-24 lg:py-32 flex justify-center bg-green-600 dark:bg-green-800"
+        >
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
+                  Comienza a Controlar tus Finanzas con FinBot Hoy
+                </h2>
+                <p className="mx-auto max-w-[600px] text-green-100 md:text-xl">
+                  Únete a miles de usuarios que ya están mejorando su salud
+                  financiera con FinBot, nuestro asistente de WhatsApp.
+                </p>
+              </div>
+              <Button
+                onClick={() => {
+                  window.open("https://wa.me/573161167237", "_blank");
+                }}
+                className="bg-white text-green-600 hover:bg-green-100 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700"
+              >
+                Agregar Bot a WhatsApp
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center justify-center px-4 md:px-6 border-t bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          © 2024 FinBot. Todos los derechos reservados.
+        </p>
+        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+          <Link
+            className="text-xs text-gray-500 hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400 hover:underline underline-offset-4"
+            href="/terms"
+          >
+            Términos de Servicio
+          </Link>
+          <Link
+            className="text-xs text-gray-500 hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400 hover:underline underline-offset-4"
+            href="/privacy"
+          >
+            Privacidad
+          </Link>
+        </nav>
       </footer>
     </div>
   );
