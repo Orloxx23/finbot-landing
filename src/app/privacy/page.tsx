@@ -90,7 +90,7 @@ const PrivacyPolicy: React.FC = () => {
       </p>
 
       <p className="font-bold">
-        <strong>Última actualización:</strong> [Fecha de hoy]
+        <strong>Última actualización:</strong> Octubre 23, 2024
       </p>
     </div>
   );
